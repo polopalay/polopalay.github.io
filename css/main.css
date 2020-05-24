@@ -1,0 +1,22 @@
+html {
+  background-image: radial-gradient(
+    circle,
+    rgba(186, 178, 147, 1) 0%,
+    rgba(188, 189, 154, 1) 0%,
+    rgba(120, 140, 140, 1) 100%
+  );
+}
+button {
+  cursor: pointer;
+}
+.img-description {
+  margin-top: 30px;
+  max-width: 200px;
+  max-height: 200px;
+  margin: 30px auto 20px auto;
+  align-self: center;
+}
+.img-icon {
+  max-width: 30px;
+  max-height: 30px;
+}

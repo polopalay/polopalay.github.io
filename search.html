@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href=".img/news.png" />
+    <link rel="stylesheet" href="./plugin/bootstrap.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Newspaper</title>
+  </head>
+
+  <body class="body">
+    <div>
+      <section id="header"></section>
+
+      <section>
+        <div class="container">
+          <div class="row mb-2" id="searched-container"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <ul class="pagination" id="pagination"></ul>
+        </div>
+      </section>
+
+      <section id="footer"></section>
+    </div>
+    <script src="./plugin/jQuery.js"></script>
+    <script src="./js/load.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/readNews.js"></script>
+    <script>
+      readMonths();
+      searchArticle();
+      loadHeaderAndFooter();
+    </script>
+  </body>
+</html>
