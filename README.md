@@ -5,7 +5,7 @@
 ```
 
 
-![Image of Yaktocat](https://polopalay.github.io/img/img5.jpeg)
+![Image of Yaktocat](https://polopalay.github.io/img/img24.jpg)
 
 
 ### My email:
