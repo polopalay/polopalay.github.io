@@ -4,7 +4,8 @@
                     My name is Bằng
 ```
 
-[Image](https://polopalay.github.io/img/img5.jpeg)
+
+![Image of Yaktocat](https://polopalay.github.io/img/img5.jpeg)
 
 
 ### My email:
