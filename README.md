@@ -1,7 +1,7 @@
 ## Welcome to Polopalay Pages
 
 ```markdown
-                    Polopalay
+                           Polopalay
 ```
 
 
@@ -16,8 +16,7 @@
 ### Những project viết bằng javascript của tôi:
 
 1. [Coloors](https://polopalay.github.io/coloors)
-Trang web tạo ra 1 bảng màu, có thể chép mã hex của từng mảng màu một.
-Lưu nó vào trong library, lấy lại hoặc xoá những màu đã lưu.
+Trang web tạo ra 1 bảng màu, có thể chép mã hex của từng mảng màu một.Lưu nó vào trong library, lấy lại hoặc xoá những màu đã lưu.
 ![Coloors](https://polopalay.github.io/img/coolor.png)
 
 2. [Newspaper](https://polopalay.github.io/newspaper)
@@ -29,8 +28,7 @@ Một trang web xem và tìm kiếm ảnh.
 ![Photon](https://polopalay.github.io/img/photon.png)
 
 4. [Todos](https://polopalay.github.io/todos)
-Trang web ghi lại những việc cần làm, có thể đánh dấu xong hoặc chưa xong
-hoặc xoá những công việc đã lưu
+Trang web ghi lại những việc cần làm, có thể đánh dấu xong hoặc chưa xong hoặc xoá những công việc đã lưu
 ![Todos](https://polopalay.github.io/img/todos.png)
 
 
