@@ -2,6 +2,7 @@
 
 ### List of my project:
 
+```markdown
 1. [Coloors](https://polopalay.github.io/coloors)
 2. [Newspaper](https://polopalay.github.io/newspaper)
 3. [Photon](https://polopalay.github.io/photon)
