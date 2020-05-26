@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/plugin/fontawesome.css" />
+    <title>Photon</title>
+  </head>
+  <body>
+    <header>
+      <a id="logo" href="./index.html">
+        <i class="fal fa-photo-video"></i>
+      </a>
+      <form action="" class="search-form">
+        <input type="text" required class="search-input" />
+        <button type="submit" class="submit-btn">
+          <i class="far fa-search"></i>
+        </button>
+        <select id="chose">
+          <option value="image">Image</option>
+          <option value="video">Video</option>
+        </select>
+      </form>
+    </header>
+    <main>
+      <div class="gallery"></div>
+      <div class="nav-button">
+        <button class="more"><i class="far fa-caret-down"></i></button>
+      </div>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

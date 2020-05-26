@@ -255,7 +255,10 @@ function savePalette() {
   const paletteBtn = document.createElement("button");
   paletteBtn.classList.add("pick-palette-btn");
   paletteBtn.classList.add(paletteObj.nr);
-  paletteBtn.innerText = "Select";
+  const i1 = document.createElement("i");
+  i1.classList.add("far");
+  i1.classList.add("fa-palette");
+  paletteBtn.appendChild(i1);
 
   paletteBtn.addEventListener("click", (e) => {
     closeLibrary();
@@ -272,9 +275,21 @@ function savePalette() {
     resetInput();
   });
 
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("pick-palette-btn");
+  deleteBtn.classList.add(paletteObj.nr);
+  const i2 = document.createElement("i");
+  i2.classList.add("far");
+  i2.classList.add("fa-trash-alt");
+  deleteBtn.appendChild(i2);
+  deleteBtn.addEventListener("click", (e) => {
+    deleteByIndex(e.target.classList[1]);
+  });
+
   palette.appendChild(title);
   palette.appendChild(preview);
   palette.appendChild(paletteBtn);
+  palette.appendChild(deleteBtn);
   libraryContainer.children[0].appendChild(palette);
 }
 
@@ -321,7 +336,10 @@ function getLocal() {
       const paletteBtn = document.createElement("button");
       paletteBtn.classList.add("pick-palette-btn");
       paletteBtn.classList.add(paletteObj.nr);
-      paletteBtn.innerText = "Select";
+      const i1 = document.createElement("i");
+      i1.classList.add("far");
+      i1.classList.add("fa-palette");
+      paletteBtn.appendChild(i1);
 
       paletteBtn.addEventListener("click", (e) => {
         closeLibrary();
@@ -337,12 +355,49 @@ function getLocal() {
         });
         resetInput();
       });
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("pick-palette-btn");
+      deleteBtn.classList.add(paletteObj.nr);
+      const i2 = document.createElement("i");
+      i2.classList.add("far");
+      i2.classList.add("fa-trash-alt");
+      deleteBtn.appendChild(i2);
+
+      deleteBtn.addEventListener("click", (e) => {
+        deleteByIndex(e.target.classList[1]);
+      });
+
       palette.appendChild(title);
       palette.appendChild(preview);
       palette.appendChild(paletteBtn);
+      palette.appendChild(deleteBtn);
       libraryContainer.children[0].appendChild(palette);
     });
   }
+}
+
+function deleteByIndex(index) {
+  newPalettes = [];
+  for (var i = 0; i < savedPalettes.length; i++) {
+    if (i != index) {
+      let st = savedPalettes[i];
+      st.nr = i;
+      newPalettes.push(st);
+    }
+  }
+  for (var i = 0; i < newPalettes.length; i++) {
+    newPalettes[i].nr = i;
+  }
+  savedPalettes = newPalettes;
+  localStorage.setItem("palettes", JSON.stringify(newPalettes));
+
+  for (var i = 2; i < libraryContainer.children[0].children.length; i) {
+    libraryContainer.children[0].removeChild(
+      libraryContainer.children[0].children[i]
+    );
+  }
+  getLocal();
 }
 
 getLocal();
