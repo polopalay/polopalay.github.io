@@ -1,36 +1,36 @@
 ## Welcome to Polopalay Pages
 
 ```markdown
-                    My name is Bằng
+                    Polopalay
 ```
 
 
 ![Minions](https://polopalay.github.io/img/img24.jpg)
 
 
-### My email:
+### Email của tôi:
 
 - polopalay@gmail.com
 - bangdche130641@fpt.edu.vn
 
-### List of my project:
+### Những project viết bằng javascript của tôi:
 
 1. [Coloors](https://polopalay.github.io/coloors)
-The project can randomly generate a palette, edit each color in the palette,
-and save or delete the palette in your browser.
+Trang web tạo ra 1 bảng màu, có thể chép mã hex của từng mảng màu một.
+Lưu nó vào trong library, lấy lại hoặc xoá những màu đã lưu.
 ![Coloors](https://polopalay.github.io/img/coolor.png)
 
 2. [Newspaper](https://polopalay.github.io/newspaper)
-Project is a news reader page and news lookup.
+Một trang web đọc và tìm kiếm báo.
 ![Newspaper](https://polopalay.github.io/img/newspaper.png)
 
 3. [Photon](https://polopalay.github.io/photon)
-A website for displaying and searching photos and videos.
+Một trang web xem và tìm kiếm ảnh.
 ![Photon](https://polopalay.github.io/img/photon.png)
 
 4. [Todos](https://polopalay.github.io/todos)
-A website for you to write down what you need to do and save it in your browser.
-You can also delete it or mark it as done.
+Trang web ghi lại những việc cần làm, có thể đánh dấu xong hoặc chưa xong
+hoặc xoá những công việc đã lưu
 ![Todos](https://polopalay.github.io/img/todos.png)
 
 
