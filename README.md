@@ -3,6 +3,10 @@
 ```markdown
                     My name is Bằng
 ```
+
+[Image](https://polopalay.github.io/img/img5.jpeg)
+
+
 ### My email:
 
 - polopalay@gmail.com
