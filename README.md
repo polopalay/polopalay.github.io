@@ -9,10 +9,9 @@
 
 ### List of my project:
 
-1. [Coloors](https://polopalay.github.io/coloors)
-
-The project can randomly generate a palette, edit each color in the palette,
+1. The project can randomly generate a palette, edit each color in the palette,
 and save or delete the palette in your browser.
+[Coloors](https://polopalay.github.io/coloors)
 
 2. [Newspaper](https://polopalay.github.io/newspaper)
 
