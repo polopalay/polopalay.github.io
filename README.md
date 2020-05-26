@@ -18,7 +18,7 @@
 1. [Coloors](https://polopalay.github.io/coloors)
 The project can randomly generate a palette, edit each color in the palette,
 and save or delete the palette in your browser.
-![Coloors](https://polopalay.github.io/img/coolors.png)
+![Coloors](https://polopalay.github.io/img/coolor.png)
 
 2. [Newspaper](https://polopalay.github.io/newspaper)
 Project is a news reader page and news lookup.
