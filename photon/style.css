@@ -23,8 +23,14 @@ header {
   justify-content: center;
   align-items: center;
 }
-#logo {
+#home {
   padding: 2rem;
+  font-size: 5rem;
+  text-decoration: none;
+  color: black;
+}
+#logo {
+  margin-left: 1rem;
   font-size: 5rem;
   text-decoration: none;
   color: black;

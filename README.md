@@ -2,6 +2,11 @@
 
 ![Minions](https://polopalay.github.io/img/img24.jpg)
 
+### Chú ý:
+
+- Click vào những link trước mỗi phần giới thiệu project để vào xem demo.
+- Click vào hình ngôi nhà ở mỗi project sẽ quay trở lại trang này.
+
 ### Một vài project về font-end tôi đã làm:
 
 - [Coloors](https://polopalay.github.io/coloors), trang web tạo ra 1 bảng màu, có thể chép mã hex của từng mảng màu một.Lưu nó vào trong library, lấy lại hoặc xoá những màu đã lưu.
