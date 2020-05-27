@@ -29,5 +29,5 @@
    Trang web ghi lại những việc cần làm, có thể đánh dấu xong hoặc chưa xong hoặc xoá những công việc đã lưu
    ![Todos](https://polopalay.github.io/img/todos.png)
 
-                                        **Bằng**
-                                    _Đinh Công Bằng_
+                           **Bằng**
+                        _Đinh Công Bằng_
