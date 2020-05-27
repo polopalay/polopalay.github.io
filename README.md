@@ -1,4 +1,4 @@
-## [Coloors](https://polopalay.github.io/coloors) | [Newspaper](https://polopalay.github.io/newspaper) | [Photon](https://polopalay.github.io/photon) | [Todos](https://polopalay.github.io/todos)
+## [Todos](https://polopalay.github.io/todos) | [Photon](https://polopalay.github.io/photon) | [Coloors](https://polopalay.github.io/coloors) | [Newspaper](https://polopalay.github.io/newspaper)
 
 ![Minions](https://polopalay.github.io/img/minion.jpg)
 
