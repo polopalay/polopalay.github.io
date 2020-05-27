@@ -1,9 +1,8 @@
-var key;
-var num;
-var current = 1;
+let key;
+let current = 1;
 
 function readKey() {
-  var value = GetURLParameter("key");
+  const value = GetURLParameter("key");
   return value;
 }
 
@@ -19,19 +18,19 @@ function searchArticle() {
   }
   $("#searched-container").empty();
   $.getJSON("./data/news.json", function (result) {
-    var list = result.filter((item) => {
+    const list = result.filter((item) => {
       return item.title.toUpperCase().includes(key.toUpperCase());
     });
 
     if (list.length == 0) {
-      var error = $("<div></div>", {
+      const error = $("<div></div>", {
         class: "alert alert-danger",
         text: "Can't find article with title contain: " + key,
       });
       $("#searched-container").append(error);
     }
-    var numberPageInSite = 8;
-    for (var i = 0; i < list.length && i < numberPageInSite; i++) {
+    const numberPageInSite = 8;
+    for (let i = 0; i < list.length && i < numberPageInSite; i++) {
       addElement(list, i + (current - 1) * numberPageInSite);
     }
     pagination(list.length / numberPageInSite);
@@ -39,15 +38,31 @@ function searchArticle() {
 }
 
 function pagination(numberPage) {
-  var begin = 1;
-  var end = numberPage;
+  const begin = 1;
+  const end = numberPage;
 
   $("#pagination").empty();
-  for (var i = begin; i <= end; i++) {
+  for (let i = begin; i <= end; i++) {
     if (current == i) {
       addButton(i, "page-item active");
     } else {
       addButton(i, "page-item ");
     }
   }
+}
+
+function addButton(index, type) {
+  const li = $("<li></li>", {
+    class: type,
+  });
+  const btn = $("<button></button>", {
+    class: "page-link",
+    text: index,
+    click: (event) => {
+      current = $(event.target).text();
+      searchArticle();
+    },
+  });
+  li.append(btn);
+  $("#pagination").append(li);
 }

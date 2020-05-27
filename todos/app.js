@@ -1,7 +1,7 @@
-var todoInput = document.querySelector(".todo-input");
-var todoButton = document.querySelector(".todo-button");
-var todoList = document.querySelector(".todo-list");
-var filterOption = document.querySelector(".filter-todo");
+const todoInput = document.querySelector(".todo-input");
+const todoButton = document.querySelector(".todo-button");
+const todoList = document.querySelector(".todo-list");
+const filterOption = document.querySelector(".filter-todo");
 
 document.addEventListener("DOMContentLoaded", loadTodo);
 todoButton.addEventListener("click", addTodo);
@@ -10,20 +10,20 @@ filterOption.addEventListener("change", filterTodo);
 
 function addTodo(event) {
   event.preventDefault();
-  var todoDiv = document.createElement("div");
+  const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
-  var newTodo = document.createElement("li");
+  const newTodo = document.createElement("li");
   newTodo.innerHTML = todoInput.value;
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
   saveTodo(todoInput.value);
 
-  var completedButton = document.createElement("button");
+  const completedButton = document.createElement("button");
   completedButton.innerHTML = '<i class="fas fa-check"></i>';
   completedButton.classList.add("complete-btn");
   todoDiv.appendChild(completedButton);
 
-  var trashButton = document.createElement("button");
+  const trashButton = document.createElement("button");
   trashButton.innerHTML = '<i class="fas fa-trash"></i>';
   trashButton.classList.add("trash-btn");
   todoDiv.appendChild(trashButton);
@@ -33,9 +33,9 @@ function addTodo(event) {
 }
 
 function deleteCheck(event) {
-  var item = event.target;
+  const item = event.target;
   if (item.classList[0] == "trash-btn") {
-    var todo = item.parentElement;
+    const todo = item.parentElement;
     todo.classList.add("fall");
     removeTodo(todo);
     todo.addEventListener("webkitTransitionEnd", function () {
@@ -44,13 +44,13 @@ function deleteCheck(event) {
   }
 
   if (item.classList[0] == "complete-btn") {
-    var todo = item.parentElement;
+    const todo = item.parentElement;
     todo.classList.toggle("completed");
   }
 }
 
 function filterTodo(event) {
-  var todos = todoList.childNodes;
+  const todos = todoList.childNodes;
   todos.forEach((todo) => {
     switch (event.target.value) {
       case "all":
@@ -75,7 +75,7 @@ function filterTodo(event) {
 }
 
 function saveTodo(todo) {
-  var todos;
+  let todos;
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
@@ -86,26 +86,26 @@ function saveTodo(todo) {
 }
 
 function loadTodo() {
-  var todos;
+  let todos;
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
   todos.forEach((todo) => {
-    var todoDiv = document.createElement("div");
+    const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
-    var newTodo = document.createElement("li");
+    const newTodo = document.createElement("li");
     newTodo.innerHTML = todo;
     newTodo.classList.add("todo-item");
     todoDiv.appendChild(newTodo);
 
-    var completedButton = document.createElement("button");
+    const completedButton = document.createElement("button");
     completedButton.innerHTML = '<i class="fas fa-check"></i>';
     completedButton.classList.add("complete-btn");
     todoDiv.appendChild(completedButton);
 
-    var trashButton = document.createElement("button");
+    const trashButton = document.createElement("button");
     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
     trashButton.classList.add("trash-btn");
     todoDiv.appendChild(trashButton);
@@ -115,7 +115,7 @@ function loadTodo() {
 }
 
 function removeTodo(todo) {
-  var todos;
+  let todos;
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
@@ -123,7 +123,7 @@ function removeTodo(todo) {
   }
 
   console.log(todo.children[0].innerText);
-  var todoIndex = todo.children[0].innerText;
+  const todoIndex = todo.children[0].innerText;
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }

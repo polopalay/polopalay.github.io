@@ -379,20 +379,20 @@ function getLocal() {
 
 function deleteByIndex(index) {
   newPalettes = [];
-  for (var i = 0; i < savedPalettes.length; i++) {
+  for (let i = 0; i < savedPalettes.length; i++) {
     if (i != index) {
       let st = savedPalettes[i];
       st.nr = i;
       newPalettes.push(st);
     }
   }
-  for (var i = 0; i < newPalettes.length; i++) {
+  for (let i = 0; i < newPalettes.length; i++) {
     newPalettes[i].nr = i;
   }
   savedPalettes = newPalettes;
   localStorage.setItem("palettes", JSON.stringify(newPalettes));
 
-  for (var i = 2; i < libraryContainer.children[0].children.length; i) {
+  for (let i = 2; i < libraryContainer.children[0].children.length; i) {
     libraryContainer.children[0].removeChild(
       libraryContainer.children[0].children[i]
     );
