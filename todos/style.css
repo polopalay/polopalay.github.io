@@ -14,8 +14,11 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-header {
-  font-size: 1.5rem;
+header h1,
+header a {
+  font-size: 3rem;
+  color: white;
+  text-decoration: none;
 }
 
 header,

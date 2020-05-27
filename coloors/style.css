@@ -96,7 +96,8 @@ svg {
 }
 .library-panel,
 .generate-panel,
-.save-panel {
+.save-panel,
+.home-panel {
   display: flex;
   flex-direction: column;
   align-items: center;

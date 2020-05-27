@@ -6,6 +6,7 @@ const currentHexes = document.querySelectorAll(".color h2");
 const popup = document.querySelector(".copy-container");
 const adjustButton = document.querySelectorAll(".adjust");
 const lockButton = document.querySelectorAll(".lock");
+const homeButton = document.querySelector(".home");
 const closeAdjust = document.querySelectorAll(".close-adjustment");
 const sliderContainers = document.querySelectorAll(".sliders");
 let initialColors;
@@ -13,6 +14,10 @@ let savedPalettes = [];
 
 //add action to controls
 generateBtn.addEventListener("click", randomColor);
+homeButton.addEventListener("click", () => {
+  window.location.href = "https://polopalay.github.io";
+});
+
 sliders.forEach((slider) => {
   slider.addEventListener("input", hslControls);
 });
