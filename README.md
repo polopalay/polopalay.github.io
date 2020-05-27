@@ -14,13 +14,8 @@
 ### Những project viết bằng javascript của tôi:
 
 1. [Coloors](https://polopalay.github.io/coloors)
-<<<<<<< HEAD
    Trang web tạo ra 1 bảng màu, có thể chép mã hex của từng mảng màu một.Lưu nó vào trong library, lấy lại hoặc xoá những màu đã lưu.
    ![Coloors](https://polopalay.github.io/img/coloor.png)
-=======
-Trang web tạo ra 1 bảng màu, có thể chép mã hex của từng mảng màu một.Lưu nó vào trong library, lấy lại hoặc xoá những màu đã lưu.
-![Coloors](https://polopalay.github.io/img/coloor.png)
->>>>>>> 13fb597cea6748fb37394ebc3e17af672a78360c
 
 2. [Newspaper](https://polopalay.github.io/newspaper)
    Một trang web đọc và tìm kiếm báo.
