@@ -14,7 +14,7 @@ function writeKey(event) {
 function searchArticle() {
   key = readKey() == null ? null : unescape(readKey());
   if (key == null) {
-    window.location.href = "./index.html";
+    window.location.href = "https://polopalay.github.io/newspaper";
   }
   $("#searched-container").empty();
   $.getJSON("./data/news.json", function (result) {

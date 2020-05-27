@@ -46,7 +46,7 @@ function addElement(list, index) {
   });
   const a = $("<a></a>", {
     class: "text-primary",
-    href: "./index.html?id=" + list[index].id,
+    href: "https://polopalay.github.io/newspaper?id=" + list[index].id,
     text: "Continue reading",
   });
   const img = $("<img></img>", {
