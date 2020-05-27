@@ -4,7 +4,7 @@
 
 ### 1. Chú ý:
 
-- Click vào những link trước mỗi phần giới thiệu project để vào xem demo.
+- Click vào những link trước mỗi phần giới thiệu project hoặc link đầu trang web để vào xem demo.
 - Click vào hình ngôi nhà ở mỗi project sẽ quay trở lại trang này.
 
 ### 2. Một vài project về font-end tôi đã làm:
