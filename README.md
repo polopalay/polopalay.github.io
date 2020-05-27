@@ -24,7 +24,3 @@
 4. [Todos](https://polopalay.github.io/todos)
    Trang web ghi lại những việc cần làm, có thể đánh dấu xong hoặc chưa xong hoặc xoá những công việc đã lưu
    ![Todos](https://polopalay.github.io/img/todos.png)
-
-5. [Flappy Bird](https://polopalay.github.io/flappy_bird)
-   Trò flappy bird.
-   ![flappy_bird](https://polopalay.github.io/img/flappy_bird.png)
