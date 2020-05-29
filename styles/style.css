@@ -24,7 +24,7 @@ label,
 input,
 a,
 p {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 h2 {
@@ -97,7 +97,7 @@ nav .logo h1 {
   margin: 2rem;
 }
 nav .logo a {
-  font-size: 4rem;
+  font-size: 6rem;
   margin: 1rem;
 }
 
@@ -185,7 +185,7 @@ nav ul {
 .active {
   background: #2c2c2c;
   color: white;
-  padding: 1rem 3rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 2rem;
 }
 
@@ -370,6 +370,15 @@ footer h4 a:hover {
     -ms-flex: 1 1 60rem;
     flex: 1 1 60rem;
     margin: 2rem 0rem;
+  }
+  .active {
+    background: #2c2c2c;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2rem;
+  }
+  nav ul li a {
+    font-size: 1rem;
   }
   .intro-text {
     margin-top: 5rem;
