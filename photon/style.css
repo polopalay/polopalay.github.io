@@ -107,7 +107,6 @@ select {
 }
 @media screen and (max-width: 754px) {
   .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 0.8fr));
-    margin: 2rem auto;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 0.6fr));
   }
 }
