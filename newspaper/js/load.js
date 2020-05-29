@@ -1,9 +1,9 @@
 function loadHeaderAndFooter() {
   $(function () {
-    $("#header").load("./component/header.html");
+    $("#header").load("/newspaper/component/header.html");
   });
   $(function () {
-    $("#footer").load("./component/footer.html");
+    $("#footer").load("/newspaper/component/footer.html");
   });
 }
 
@@ -51,7 +51,7 @@ function addElement(list, index) {
   });
   const img = $("<img></img>", {
     class: "img-description rounded",
-    src: "./img/article/" + list[index].image,
+    src: "/newspaper/img/article/" + list[index].image,
   });
   left.append(h3);
   left.append(pDate);
