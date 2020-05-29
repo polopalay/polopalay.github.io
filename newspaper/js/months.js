@@ -1,4 +1,4 @@
-let monthsLong = [
+const monthsLong = [
   "Jan",
   "Feb",
   "Mar",
@@ -12,7 +12,7 @@ let monthsLong = [
   "Nov",
   "Dec",
 ];
-let monthsSort = [
+const monthsSort = [
   "January",
   "February",
   "March",

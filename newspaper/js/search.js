@@ -13,7 +13,7 @@ function writeKey(event) {
 function searchArticle() {
   key = readKey() == null ? null : unescape(readKey());
   if (key == null) {
-    // window.location.href = "https://polopalay.github.io/newspaper";
+    window.location.href = "https://polopalay.github.io/newspaper";
     key = "a";
   }
   $("#searched-container").empty();
