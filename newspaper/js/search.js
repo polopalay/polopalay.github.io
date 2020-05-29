@@ -8,7 +8,7 @@ function readKey() {
 
 function writeKey(event) {
   event.preventDefault();
-  window.location.href = "./search.html?key=" + escape($("#search").val());
+  window.location.href = "./search?key=" + escape($("#search").val());
 }
 
 function searchArticle() {
