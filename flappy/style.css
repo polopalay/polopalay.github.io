@@ -8,11 +8,21 @@ html {
 }
 body {
   background-color: rgb(228, 213, 181);
+  display: flex;
+  flex-direction: column;
+}
+div {
+  display: block;
+  margin: 3rem auto 1rem auto;
+}
+a {
+  color: black;
+  font-size: 4rem;
 }
 canvas {
   border: 1px solid #000;
   display: block;
-  margin: 9rem auto;
+  margin: 3rem auto 1rem auto;
 }
 
 /* devanagari */
