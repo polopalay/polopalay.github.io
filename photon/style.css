@@ -105,3 +105,8 @@ select {
   border: none;
   font-size: 1.2rem;
 }
+@media screen and (max-width: 754px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 0.5fr));
+  }
+}
