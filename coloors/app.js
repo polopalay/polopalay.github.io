@@ -15,7 +15,7 @@ let savedPalettes = [];
 //add action to controls
 generateBtn.addEventListener("click", randomColor);
 homeButton.addEventListener("click", () => {
-  window.location.href = "https://polopalay.github.io";
+  window.location.href = "/";
 });
 
 sliders.forEach((slider) => {
