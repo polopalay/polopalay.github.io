@@ -9,6 +9,11 @@ html {
 button {
   cursor: pointer;
 }
+
+.form-inline {
+  justify-content: right;
+  align-items: flex-end;
+}
 .img-description {
   margin-top: 30px;
   max-width: 200px;
