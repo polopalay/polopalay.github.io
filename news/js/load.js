@@ -1,9 +1,9 @@
 function loadHeaderAndFooter() {
   $(function () {
-    $("#header").load("/newspaper/component/header.html");
+    $("#header").load("/news/component/header.html");
   });
   $(function () {
-    $("#footer").load("/newspaper/component/footer.html");
+    $("#footer").load("/news/component/footer.html");
   });
 }
 
@@ -46,12 +46,12 @@ function addElement(list, index) {
   });
   const a = $("<a></a>", {
     class: "text-primary",
-    href: "https://polopalay.github.io/newspaper?id=" + list[index].id,
+    href: "https://polopalay.github.io/news?id=" + list[index].id,
     text: "Continue reading",
   });
   const img = $("<img></img>", {
     class: "img-description rounded",
-    src: "/newspaper/img/article/" + list[index].image,
+    src: "/news/img/article/" + list[index].image,
   });
   left.append(h3);
   left.append(pDate);

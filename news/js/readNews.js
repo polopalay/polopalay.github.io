@@ -1,6 +1,6 @@
 function readNews() {
   const id = GetURLParameter("id");
-  $.getJSON("/newspaper//data/news.json", function (result) {
+  $.getJSON("/news/data/news.json", function (result) {
     var article = result.find((item) => {
       return item.id == id;
     });
@@ -8,7 +8,7 @@ function readNews() {
     const date = new Date(article.date);
     const month = monthsLong[date.getMonth() - 1];
     $("#title").html(article.title);
-    $("#img").attr("src", "/newspaper//img/article/" + article.image);
+    $("#img").attr("src", "/news/img/article/" + article.image);
     $("#content").html(article.content);
     $("#writer").text(
       month +
@@ -23,7 +23,7 @@ function readNews() {
 }
 
 function readMostNews() {
-  $.getJSON("/newspaper/data/news.json", function (result) {
+  $.getJSON("/news/data/news.json", function (result) {
     let mostNew = result[0].content;
     mostNew =
       mostNew.length <= 200 ? mostNew : mostNew.substring(0, 200) + "...";

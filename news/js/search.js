@@ -7,17 +7,17 @@ function readKey() {
 
 function writeKey(event) {
   event.preventDefault();
-  window.location.href = "/newspaper/search?key=" + escape($("#search").val());
+  window.location.href = "/news/search?key=" + escape($("#search").val());
 }
 
 function searchArticle() {
   key = readKey() == null ? null : unescape(readKey());
   if (key == null) {
-    window.location.href = "https://polopalay.github.io/newspaper";
+    window.location.href = "https://polopalay.github.io/news";
     key = "a";
   }
   $("#searched-container").empty();
-  $.getJSON("/newspaper/data/news.json", function (result) {
+  $.getJSON("/news/data/news.json", function (result) {
     const list = result.filter((item) => {
       return item.title.toUpperCase().includes(key.toUpperCase());
     });
