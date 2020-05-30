@@ -25,10 +25,15 @@ button {
     display: none;
   }
   .form-control {
-    width: 30%;
-    margin-right: 0.4rem;
+    width: 60%;
+    margin-right: 0.2rem;
   }
   .navbar-brand {
-    margin-right: 0.4rem;
+    margin-right: 0.2rem;
+  }
+  .form-inline {
+    width: 80%;
+    justify-content: right;
+    align-items: flex-end;
   }
 }
