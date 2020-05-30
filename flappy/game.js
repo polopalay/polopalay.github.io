@@ -25,13 +25,13 @@ const startBtn = {
 cvs.addEventListener("click", function (evt) {
   switch (state.current) {
     case state.getReady:
-      state.current = state.game;
       SWOOSHING.play();
+      state.current = state.game;
       break;
     case state.game:
       if (bird.y - bird.radius <= 0) return;
-      bird.flap();
       FLAP.play();
+      bird.flap();
       break;
     case state.over:
       let rect = cvs.getBoundingClientRect();
@@ -191,8 +191,8 @@ const bird = {
       if (this.y + this.h / 2 >= cvs.height - fg.h) {
         this.y = cvs.height - fg.h - this.h / 2;
         if (state.current == state.game) {
-          state.current = state.over;
           DIE.play();
+          state.current = state.over;
         }
       }
 
@@ -340,14 +340,14 @@ const pipes = {
         bird.y + bird.radius > bottomPipeYPos &&
         bird.y - bird.radius < bottomPipeYPos + this.h
       ) {
-        state.current = state.over;
         HIT.play();
+        state.current = state.over;
       }
       p.x -= this.dx;
       if (p.x + this.w <= 0) {
+        SCORE_S.play();
         this.position.shift();
         score.value += 1;
-        SCORE_S.play();
         score.best = Math.max(score.value, score.best);
         localStorage.setItem("best", score.best);
       }
