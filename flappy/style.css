@@ -11,10 +11,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-div {
-  display: block;
-  margin: 3rem auto 1rem auto;
-}
 a {
   color: black;
   font-size: 4rem;
@@ -22,7 +18,7 @@ a {
 canvas {
   border: 1px solid #000;
   display: block;
-  margin: 3rem auto 1rem auto;
+  margin: 8rem auto 1rem auto;
 }
 
 /* devanagari */
