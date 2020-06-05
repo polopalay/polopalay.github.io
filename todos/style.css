@@ -11,7 +11,7 @@ html {
 body {
   background-image: linear-gradient(90deg, #f6d365, #fda085);
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
 }
 
 header h1,
@@ -135,7 +135,7 @@ select option {
   background: #dd8771;
   top: 0;
   right: 0;
-  padding: 1rem;
+  padding: 1.1rem;
   pointer-events: none;
   transition: all 0.3 ease;
 }
