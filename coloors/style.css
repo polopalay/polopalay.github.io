@@ -2,16 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: roboto;
 }
 html {
   font-size: 62.5%;
 }
 body {
-  font-family: sans-serif;
   color: rgb(51, 51, 51);
 }
 button {
-  font-family: "Muli", sans-serif;
   cursor: pointer;
 }
 path,

@@ -1,3 +1,6 @@
+* {
+  font-family: roboto;
+}
 html {
   background-image: radial-gradient(
     circle,
@@ -8,6 +11,7 @@ html {
 }
 button {
   cursor: pointer;
+  font-family: roboto;
 }
 
 .form-inline {
