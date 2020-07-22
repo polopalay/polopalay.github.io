@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="/img/icon.png" />
+    <link rel="stylesheet" href="/lib/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>News</title>
+  </head>
+  <body>
+    <div>
+      <section id="header"></section>
+
+      <section id="most-news">
+        <div class="container">
+          <div class="row mb-2" id="searched-container"></div>
+        </div>
+      </section>
+
+      <section id="article">
+        <div class="container">
+          <div class="container">
+            <h2 id="title"></h2>
+            <p class="text-muted" id="writer"></p>
+            <hr />
+            <img id="img" alt="" class="rounded mx-auto d-block mw-100" />
+            <p id="content"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="footer"></section>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="./js/months.js"></script>
+    <script src="./js/load.js"></script>
+    <script src="./js/readNews.js"></script>
+    <script src="./js/search.js"></script>
+    <script>
+      loadHeaderAndFooter();
+      readNews();
+      readMostNews();
+    </script>
+  </body>
+</html>
