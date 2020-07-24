@@ -8,7 +8,7 @@ function readNews() {
     const date = new Date(article.date);
     const month = monthsLong[date.getMonth() - 1];
     $("#title").html(article.title);
-    $("#img").attr("src", "/news/img/article/" + article.image);
+    $("#img").attr("src", "/news/images/article/" + article.image);
     $("#content").html(article.content);
     $("#writer").text(
       month +

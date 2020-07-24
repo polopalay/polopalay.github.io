@@ -7,7 +7,7 @@ const FLAP = new Audio("./audio/sfx_flap.mp3");
 const HIT = new Audio("./audio/sfx_hit.mp3");
 const SWOOSHING = new Audio("./audio/sfx_swooshing.mp3");
 const DIE = new Audio("./audio/sfx_die.mp3");
-sprite.src = "./img/sprite.png";
+sprite.src = "./images/sprite.png";
 let frames = 0;
 const state = {
   current: 0,

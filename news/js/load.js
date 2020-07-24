@@ -51,7 +51,7 @@ function addElement(list, index) {
   });
   const img = $("<img></img>", {
     class: "img-description rounded",
-    src: "/news/img/article/" + list[index].image,
+    src: "/news/images/article/" + list[index].image,
   });
   left.append(h3);
   left.append(pDate);
