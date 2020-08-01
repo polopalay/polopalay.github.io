@@ -1,4 +1,4 @@
-function GetURLParameter(sParam) {
+function getURLParameter(sParam) {
   $.urlParam = function (name) {
     const results = new RegExp("[?&]" + name + "=([^&#]*)").exec(
       window.location.href
@@ -49,19 +49,5 @@ function deleteCookie(name) {
     const date = new Date();
     date.setTime(date.getTime() - 1);
     document.cookie = name + "=; Path=/; Expires=" + date.toUTCString();
-  }
-}
-
-async function readFile(file) {
-  let data = null;
-  const fileReader = new FileReader();
-  fileReader.onload = function (fileLoadedEvent) {
-    data = fileLoadedEvent.target.result;
-  };
-  fileReader.readAsDataURL(file);
-  while (true) {
-    if (data != null) {
-      return data;
-    }
   }
 }

@@ -1,5 +1,7 @@
+const limitSize = 1;
 let editor;
 let img;
+let file;
 function load() {
   ClassicEditor.create(document.querySelector("#content"), {
     cloudServices: {
@@ -17,10 +19,34 @@ load();
 function submitData() {
   console.log(editor.getData());
   console.log(img);
+  console.log(file);
 }
-async function readImg() {
-  const filesSelected = $("#file")[0].files;
+function readImg(event) {
+  const filesSelected = event.target.files;
   if (filesSelected.length > 0) {
-    img = await readFile(filesSelected[0]);
+    const fileReader = new FileReader();
+    fileReader.onload = function (fileLoadedEvent) {
+      img = fileLoadedEvent.target.result;
+    };
+    if (filesSelected[0].size < 1024 * 1024 * limitSize) {
+      fileReader.readAsDataURL(filesSelected[0]);
+    } else {
+      toastr.warning("File phải nhỏ hơn 1MB");
+    }
+  }
+}
+
+function readFile(event) {
+  const filesSelected = event.target.files;
+  if (filesSelected.length > 0) {
+    const fileReader = new FileReader();
+    fileReader.onload = function (fileLoadedEvent) {
+      file = fileLoadedEvent.target.result;
+    };
+    if (filesSelected[0].size < 1024 * 1024 * limitSize) {
+      fileReader.readAsDataURL(filesSelected[0]);
+    } else {
+      toastr.warning("File phải nhỏ hơn 1MB");
+    }
   }
 }
