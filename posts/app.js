@@ -1,4 +1,5 @@
 let editor;
+let img;
 function load() {
   ClassicEditor.create(document.querySelector("#content"), {
     cloudServices: {
@@ -13,18 +14,13 @@ function load() {
 }
 load();
 
-function submit() {
+function submitData() {
   console.log(editor.getData());
+  console.log(img);
 }
-function readFile() {
+async function readImg() {
   const filesSelected = $("#file")[0].files;
   if (filesSelected.length > 0) {
-    const fileToLoad = filesSelected[0];
-    const fileReader = new FileReader();
-    fileReader.onload = function (fileLoadedEvent) {
-      const srcData = fileLoadedEvent.target.result;
-      $("#img").attr("src", srcData);
-    };
-    fileReader.readAsDataURL(fileToLoad);
+    img = await readFile(filesSelected[0]);
   }
 }
