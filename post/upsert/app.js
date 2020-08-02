@@ -1,16 +1,27 @@
+const config = {
+  "apiKey": "AIzaSyAIYQGiQcSjZBw9LQ9LcR1yh8uDWtsMfgs",
+  "authDomain": "data-492da.firebaseapp.com",
+  "databaseURL": "https://data-492da.firebaseio.com",
+  "projectId": "data-492da",
+  "storageBucket": "data-492da.appspot.com",
+  "messagingSenderId": "381903672681",
+  "appId": "1:381903672681:web:813cffbc63da30d11f99f8",
+  "measurementId": "G-CD4W02BEZ7"
+};
 const limitSize = 1;
 const index = 0;
 let img;
 let file;
 let editor;
 async function start() {
-  const config = getCookie("config");
-  if (config === null) {
-    window.location.href = "/login";
-  } else {
-    await init(JSON.parse(config));
-    await getData()
-  }
+  await init(config);
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user === null) {
+      window.location.href = "/login";
+    } else {
+      getData();
+    }
+  });
 }
 async function getData() {
   const data = await read("/");
