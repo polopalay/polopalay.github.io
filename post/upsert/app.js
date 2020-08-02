@@ -68,9 +68,11 @@ function submitData() {
     file: file,
     date: date.toUTCString()
   };
-  console.log(post);
-  set(`/posts/${index}`, post);
-  toastr.success("Cập nhập thành công");
+  set(`/posts/${index}`, post).then(function () {
+    toastr.success("Cập nhập thành công");
+  }).catch(function (error) {
+    toastr.error(error.message);
+  });
 }
 function readImg(event) {
   const filesSelected = event.target.files;
