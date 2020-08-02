@@ -15,8 +15,7 @@ async function checkLogin() {
     toastr.error("Đăng nhập thất bại");
   } else {
     setCookie("config", JSON.stringify(config), 60)
-    toastr.success("Đăng nhập thành công");
-    console.log(rs);
+    window.location.href = "/post/upsert";
   }
 }
-start("/build/firebase.json")
+start("/dist/firebase.json")
