@@ -21,24 +21,28 @@ async function start() {
 async function load() {
     const data = await read("/");
     let count = 0;
-    console.log(data.posts.map(element => { element = count; count++; return element; }));
     table = $('#tblData').DataTable({
         "paging": true,
         "info": true,
         "order": [2, "desc"],
         "lengthMenu": [20, 15, 10],
-        "data": data.posts,
+        "data": data.posts.map(element => { element.index = count; count++; return element }),
         "columns": [
             { "data": "title", "width": "30%" },
-            { "data": "desciption", "width": "40%" },
-            // {
-            //     "data": "DateCreate",
-            //     "render": function (data) {
-            //         return dateDMY(data);
-            //     }, "width": "20%"
-            // },
             {
-                "data": "id",
+                "data": "description",
+                "render": function (data) {
+                    return softDescription(data, 100);
+                }, "width": "30%"
+            },
+            {
+                "data": "date",
+                "render": function (data) {
+                    return dateDMY(data);
+                }, "width": "20%"
+            },
+            {
+                "data": "index",
                 "render": function (data) {
                     return `
                                     <div class="text-center">
@@ -55,8 +59,8 @@ async function load() {
         ]
     });
 }
-function upsertPost(id) {
-    window.location.href = `/post/upsert?id=${id}`;
+function upsertPost(index) {
+    window.location.href = `/post/upsert/?index=${index}`;
 }
 function deletePost(id) {
     console.log(id);

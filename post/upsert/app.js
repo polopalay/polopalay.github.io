@@ -9,7 +9,7 @@ const config = {
   "measurementId": "G-CD4W02BEZ7"
 };
 const limitSize = 1;
-const index = 0;
+const index = getURLParameter("index");
 let img;
 let file;
 let editor;
@@ -24,14 +24,29 @@ async function start() {
   });
 }
 async function getData() {
-  const data = await read("/");
-  img = data.posts[index].image;
-  file = data.posts[index].file;
-  $("#title").val(data.posts[index].title);
-  $("#desciption").val(data.posts[index].desciption);
-  $("#demoImg").attr("src", img);
-  $("#content").html(data.posts[index].content);
-  $("#demoFile").attr("href", file);
+  const data = await read("/posts");
+  if (index == null) {
+    ClassicEditor.create(document.querySelector("#content"), {
+      cloudServices: {
+        tokenUrl:
+          "https://73674.cke-cs.com/token/dev/29def106affd394b3dcacde90cbe753ea4970b44b1eb5c9a3c24eea97896",
+        uploadUrl: "https://73674.cke-cs.com/easyimage/upload/",
+      },
+      language: "vi",
+    }).then((newEditor) => {
+      editor = newEditor;
+    });
+    return;
+  }
+  if (data[index] != null) {
+    img = data[index].image;
+    file = data[index].file;
+    $("#title").val(data[index].title);
+    $("#description").val(data[index].description);
+    $("#demoImg").attr("src", img);
+    $("#content").html(data[index].content);
+    $("#demoFile").attr("href", file);
+  }
   ClassicEditor.create(document.querySelector("#content"), {
     cloudServices: {
       tokenUrl:
@@ -44,17 +59,17 @@ async function getData() {
   });
 }
 function submitData() {
+  const date = new Date();
   const post = {
-    posts: [{
-      title: $("#title").val(),
-      desciption: $("#desciption").val(),
-      image: img,
-      content: editor.getData(),
-      file: file
-
-    }]
+    title: $("#title").val(),
+    description: $("#description").val(),
+    image: img,
+    content: editor.getData(),
+    file: file,
+    date: date.toUTCString()
   };
-  set("/", post);
+  console.log(post);
+  set(`/posts/${index}`, post);
   toastr.success("Cập nhập thành công");
 }
 function readImg(event) {
