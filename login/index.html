@@ -20,7 +20,7 @@
                 <div class="login-pic js-tilt" data-tilt>
                     <img src="/images/login.jpeg" style="border-radius: 10px;" alt="IMG">
                 </div>
-                <form class="login-form" onsubmit="event.preventDefault();  checkLogin()">
+                <form class="login-form" onsubmit="loginWithAccount(event)">
                     <span class="form-title"> Đăng nhập vào hệ thống </span>
                     <div class="form-group">
                         <input class="form-control" type="text" id="account" required placeholder="Tài khoản">
@@ -28,8 +28,13 @@
                     <div class="form-group">
                         <input class="form-control" type="password" id="password" required placeholder="Mật khẩu">
                     </div>
-                    <div class="container-login-form-btn  form-group">
-                        <input type="submit" class="form-btn btn btn-success" value=" Đăng nhập " />
+                    <div class="d-flex justify-content-center form-group">
+                        <input type="submit" class="form-btn btn btn-success w-50" value=" Đăng nhập " />
+                    </div>
+                    <div class="container-login-form-btn form-group">
+                        <button type="button" onclick="loginWithGoogle()" class="btn w-100">
+                            <img class="w-50" src="/images/google.png">
+                        </button>
                     </div>
                 </form>
             </div>

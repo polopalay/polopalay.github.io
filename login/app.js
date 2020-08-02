@@ -16,7 +16,18 @@ async function start() {
     }
   });
 }
-async function checkLogin() {
+function loginWithAccount(event) {
+  event.preventDefault();
+  const username = $("#account").val();
+  const password = $("#password").val();
+  firebase.auth().signInWithEmailAndPassword(username, password).then(function () {
+    toastr.success("Đăng nhập thành công");
+  }).catch(function (error) {
+    toastr.error(error.message);
+  });
+}
+
+function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function () {
     toastr.success("Đăng nhập thành công");
@@ -24,12 +35,5 @@ async function checkLogin() {
     toastr.error(error.message);
     console.log(error.message);
   });
-  // const username = $("#account").val();
-  // const password = $("#password").val();
-  // firebase.auth().signInWithEmailAndPassword(username, password).then(function () {
-  //   toastr.success("Đăng nhập thành công");
-  // }).catch(function (error) {
-  //   toastr.error(error.message);
-  // });
 }
 start();
