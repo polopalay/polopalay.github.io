@@ -13,6 +13,7 @@ const index = getURLParameter("index");
 let img;
 let file;
 let editor;
+let senderPost;
 async function start() {
   await init(config);
   firebase.auth().onAuthStateChanged(function (user) {
@@ -39,6 +40,7 @@ async function getData() {
     return;
   }
   if (data[index] != null) {
+    senderPost = data[index];
     img = data[index].image;
     file = data[index].file;
     $("#title").val(data[index].title);
@@ -68,6 +70,7 @@ function submitData() {
     file: file,
     date: date.toUTCString()
   };
+  post.date = senderPost == null ? date.toUTCString() : senderPost.data;
   set(`/posts/${index}`, post).then(function () {
     toastr.success("Cập nhập thành công");
   }).catch(function (error) {

@@ -10,6 +10,7 @@ const config = {
 };
 let table;
 
+
 async function start() {
     await init(config);
     firebase.auth().onAuthStateChanged(function (user) {
@@ -19,8 +20,8 @@ async function start() {
     });
 }
 async function load() {
-    const data = await read("/");
     let count = 0;
+    const data = await read("/");
     table = $('#tblData').DataTable({
         "paging": true,
         "info": true,
@@ -58,12 +59,57 @@ async function load() {
             }
         ]
     });
+    $("#create").attr("href", `/post/upsert/?index=${count}`)
 }
 function upsertPost(index) {
     window.location.href = `/post/upsert/?index=${index}`;
 }
-function deletePost(id) {
-    console.log(id);
+async function deletePost(index) {
+    let count = 0;
+    const data = await read("/posts");
+    const list = data.map(element => { element.index = count; count++; return element });
+    const newList = list.filter(item => item.index !== index);
+    set("/posts", newList);
+    table.destroy();
+    $('#tblData tbody').empty()
+    table = $('#tblData').DataTable({
+        "paging": true,
+        "info": true,
+        "order": [2, "desc"],
+        "lengthMenu": [20, 15, 10],
+        "data": newList,
+        "columns": [
+            { "data": "title", "width": "30%" },
+            {
+                "data": "description",
+                "render": function (data) {
+                    return softDescription(data, 100);
+                }, "width": "30%"
+            },
+            {
+                "data": "date",
+                "render": function (data) {
+                    return dateDMY(data);
+                }, "width": "20%"
+            },
+            {
+                "data": "index",
+                "render": function (data) {
+                    return `
+                                    <div class="text-center">
+                                        <button onclick=upsertPost(${data})  class="btn btn-success text-white" style="cursor:pointer">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button onclick=deletePost(${data}) class="btn btn-danger text-white" style="cursor:pointer">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                   `;
+                }, "width": "20%"
+            }
+        ]
+    });
+    $("#create").attr("href", `/post/upsert/?index=${count}`);
 }
 start();
 load();
