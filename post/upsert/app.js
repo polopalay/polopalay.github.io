@@ -9,14 +9,15 @@ const config = {
   "measurementId": "G-CD4W02BEZ7"
 };
 const limitSize = 1;
+const database = new Database(config);
 const index = getURLParameter("index");
-let img;
-let file;
+let id;
+let img = "/images/placeholder";
+let file = "/images/placeholder";
 let editor;
 let senderPost;
 async function start() {
-  await init(config);
-  firebase.auth().onAuthStateChanged(function (user) {
+  database.auth.onAuthStateChanged(function (user) {
     if (user === null) {
       window.location.href = "/login";
     } else {
@@ -24,21 +25,10 @@ async function start() {
     }
   });
 }
+
 async function getData() {
-  const data = await read("/posts");
-  if (index == null) {
-    ClassicEditor.create(document.querySelector("#content"), {
-      cloudServices: {
-        tokenUrl:
-          "https://73674.cke-cs.com/token/dev/29def106affd394b3dcacde90cbe753ea4970b44b1eb5c9a3c24eea97896",
-        uploadUrl: "https://73674.cke-cs.com/easyimage/upload/",
-      },
-      language: "vi",
-    }).then((newEditor) => {
-      editor = newEditor;
-    });
-    return;
-  }
+  const data = await database.read("/posts");
+  id = data.length;
   if (data[index] != null) {
     senderPost = data[index];
     img = data[index].image;
@@ -46,7 +36,7 @@ async function getData() {
     $("#title").val(data[index].title);
     $("#description").val(data[index].description);
     $("#demoImg").attr("src", img);
-    $("#content").html(data[index].content);
+    $("#content").text(data[index].content);
     $("#demoFile").attr("href", file);
   }
   ClassicEditor.create(document.querySelector("#content"), {
@@ -60,6 +50,7 @@ async function getData() {
     editor = newEditor;
   });
 }
+
 function submitData() {
   const date = new Date();
   const post = {
@@ -71,12 +62,15 @@ function submitData() {
     date: date.toUTCString()
   };
   post.date = senderPost == null ? date.toUTCString() : senderPost.data;
-  set(`/posts/${index}`, post).then(function () {
+  id = (index == null || index < 0 || index > id) ? id : index;
+  senderPost = senderPost == null ? post : senderPost;
+  database.set(`/posts/${id}`, post).then(function () {
     toastr.success("Cập nhập thành công");
   }).catch(function (error) {
     toastr.error(error.message);
   });
 }
+
 function readImg(event) {
   const filesSelected = event.target.files;
   if (filesSelected.length > 0) {

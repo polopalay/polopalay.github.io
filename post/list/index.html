@@ -16,8 +16,8 @@
     <div class="container mt-5">
         <div class="container-login-form-btn  form-group">
             <div class="container mb-3 d-flex flex-row-reverse">
-                <input type="button" onclick="firebase.auth().signOut(); window.location.href = '/login';" class="form-btn btn btn-warning mx-1" value=" Đăng xuất " />
-                <a id="create" href="#" class="form-btn btn btn-success mx-1">Thêm bài</a>
+                <input type="button" onclick="database.auth.signOut(); window.location.href = '/login';" class="form-btn btn btn-warning mx-1" value=" Đăng xuất " />
+                <a id="create" href="/post/upsert" class="form-btn btn btn-success mx-1">Thêm bài</a>
             </div>
             <table class="table" width="100%" id="tblData">
                 <thead>
