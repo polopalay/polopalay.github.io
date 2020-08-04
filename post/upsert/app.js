@@ -12,8 +12,8 @@ const limitSize = 1;
 const database = new Database(config);
 const index = getURLParameter("index");
 let id;
-let img = "/images/placeholder";
-let file = "/images/placeholder";
+let img = "/images/placeholder.png";
+let file = "/images/placeholder.png";
 let editor;
 let senderPost;
 async function start() {
