@@ -61,7 +61,7 @@ function submitData() {
     file: file,
     date: date.toUTCString()
   };
-  post.date = senderPost == null ? date.toUTCString() : senderPost.data;
+  post.date = senderPost == null ? date.toUTCString() : senderPost.date;
   id = (index == null || index < 0 || index > id) ? id : index;
   senderPost = senderPost == null ? post : senderPost;
   database.set(`/posts/${id}`, post).then(function () {
