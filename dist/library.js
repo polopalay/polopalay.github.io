@@ -20,7 +20,7 @@ function softDescription(description, length) {
 
 function dateDMY(value) {
   let date = new Date(value);
-  return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+  return (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate()) + "/" + (date.getMonth() < 10 ? ("0" + date.getMonth()) : date.getMonth()) + "/" + date.getFullYear();
 }
 
 function setCookie(name, value, minutes) {
