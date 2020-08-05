@@ -36,13 +36,13 @@ class Database {
   async deleteList(url, index) {
     let count = 0;
     const data = await this.read(url);
-    const list = data.map(element => { element.index = count; count++; return element }).filter(item => item.index !== index);
-    this.set(url, list);
+    const list = await data.map(element => { element.index = count; count++; return element }).filter(item => item.index !== index);
+    await this.set(url, list);
   }
   async addList(url, index) {
     let count = 0;
     const data = await this.read(url);
-    const list = data.map(element => { element.index = count; count++; return element }).filter(item => item.index !== index);
-    this.set(url, list);
+    const list = await data.map(element => { element.index = count; count++; return element }).filter(item => item.index !== index);
+    await this.set(url, list);
   }
 }

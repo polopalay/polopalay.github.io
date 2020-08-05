@@ -7,19 +7,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #page-content {
+            flex: 1 0 auto;
+        }
+
+        #sticky-footer {
+            flex-shrink: none;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container pt-4">
-        <h3 id="title" class="text-center"></h3>
-        <div class="container m-4">
-            <img id="image" class="border rounded img-fluid" src="/images/placeholder.png" alt="">
+<body class="d-flex flex-column">
+    <div id="page-content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="/"> Trang chủ </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="/post/list"> Danh sách </a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/login/"> Login</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 id="title" class="mt-4"></h1>
+                    <hr>
+                    <p id="date"></p>
+                    <hr>
+                    <img id="image" class="img-fluid rounded" src="" alt="">
+                    <hr>
+                    <div id="content"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card my-4">
+                        <h5 class="card-header">Search</h5>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-append">
+                                    <button class="btn btn-secondary" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card my-4">
+                        <h5 class="card-header">Side Widget</h5>
+                        <div class="card-body"> You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers! </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p id="date" class="text-muted text-right"></p>
-        <h5 id="description"></h5>
-        <div id="content" class="container"></div>
-        <div id="paging"></div>
     </div>
+    <footer id="sticky-footer" class="py-4 bg-light">
+        <div class="container text-center">
+            <small>Copyright &copy; My Website</small>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -41,22 +96,12 @@
         };
         const database = new Database(config);
         async function getData() {
-            const data = await database.read("/posts/1");
+            const data = await database.read("/posts/data/1");
             $("#title").text(data.title);
             $("#image").attr("src", data.image);
             $("#date").text(data.date);
             $("#description").text(data.description);
             $("#content").html(data.content);
-            // if (data[index] != null) {
-            //     senderPost = data[index];
-            //     img = data[index].image;
-            //     file = data[index].file;
-            //     $("#title").val(data[index].title);
-            //     $("#description").val(data[index].description);
-            //     $("#demoImg").attr("src", img);
-            //     $("#content").text(data[index].content);
-            //     $("#demoFile").attr("href", file);
-            // }
         }
         getData();
     </script>

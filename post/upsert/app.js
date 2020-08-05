@@ -27,7 +27,7 @@ async function start() {
 }
 
 async function getData() {
-  const data = await database.read("/posts");
+  const data = await database.read("/posts/data");
   id = data.length;
   if (data[index] != null) {
     senderPost = data[index];
@@ -64,7 +64,7 @@ function submitData() {
   post.date = senderPost == null ? date.toUTCString() : senderPost.date;
   id = (index == null || index < 0 || index > id) ? id : index;
   senderPost = senderPost == null ? post : senderPost;
-  database.set(`/posts/${id}`, post).then(function () {
+  database.set(`/posts/data/${id}`, post).then(function () {
     toastr.success("Cập nhập thành công");
   }).catch(function (error) {
     toastr.error(error.message);
