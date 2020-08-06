@@ -7,22 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
-
-    #page-content {
-      flex: 1 0 auto;
-    }
-
-    #sticky-footer {
-      flex-shrink: none;
-    }
-  </style>
+  <link rel="stylesheet" href="/dist/site.css">
 </head>
 
 <body class="d-flex flex-column">
@@ -45,26 +33,26 @@
       <form class="login-form my-5" onsubmit="event.preventDefault(); submitData()">
         <input type="text" class="form-control mb-5" id="title" placeholder="Tiêu đề" required />
         <input type="text" class="form-control mb-5" id="description" placeholder="Mô tả" />
-        <div class="w-100 d-flex mb-5">
-          <div class="custom-file w-25 ">
+        <div class="row container d-flex mb-5">
+          <div class="custom-file col-8">
             <input type="file" onchange="readImg(event)" class="custom-file-input" id="image" accept="image/*" />
             <label class="custom-file-label" for="validatedInputGroupCustomFile"> Ảnh mô tả </label>
           </div>
-          <div class="container w-25"><img class="w-100 " src="/images/placeholder.png" id="demoImg" alt=""></div>
+          <div class="col-4"><img class="w-100" src="/images/placeholder.png" id="demoImg" alt=""></div>
         </div>
         <textarea class="" id="content"></textarea>
-        <div class="w-100 d-flex my-5">
-          <div class="custom-file w-25">
+        <div class="row container d-flex my-5">
+          <div class="custom-file col-8">
             <input type="file" onchange="readFile(event)" class="custom-file-input" id="file" />
             <label class="custom-file-label" for="validatedInputGroupCustomFile"> File đính kèm </label>
           </div>
-          <div class="container w-25">
-            <a class="btn btn-secondary text-white w-100 " style="cursor: pointer;" id="demoFile" download="post">
+          <div class="col-4">
+            <a class="btn btn-secondary text-white form-control" style="cursor: pointer;" id="demoFile" download="post">
               <i class="fas fa-download"></i>
             </a>
           </div>
         </div>
-        <input type="submit" class="btn btn-success form-control" value="Submit" />
+        <div class="d-flex mb-5"><input type="submit" class="btn btn-success" value="Lưu" /></div>
       </form>
     </div>
   </div>
