@@ -45,10 +45,16 @@ async function getData() {
         "https://73674.cke-cs.com/token/dev/29def106affd394b3dcacde90cbe753ea4970b44b1eb5c9a3c24eea97896",
       uploadUrl: "https://73674.cke-cs.com/easyimage/upload/",
     },
+    toolbar: ['heading', '|', 'bold', 'italic', 'link',
+      '|', 'bulletedList', 'numberedList',
+      '|', 'undo', 'redo',
+      '|', 'insertTable', 'mediaEmbed'],
     language: "vi",
   }).then((newEditor) => {
+    console.log(Array.from(newEditor.ui.componentFactory.names()));
     editor = newEditor;
   });
+  // $("#content").from($("#content").ui.componentFactory.names());
 }
 
 function submitData() {

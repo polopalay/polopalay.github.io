@@ -84,7 +84,7 @@
         };
         const database = new Database(config);
         async function getData() {
-            const data = await database.read("/posts/data/1");
+            const data = await database.read("/posts/data/0");
             $("#title").text(data.title);
             $("#image").attr("src", data.image);
             $("#date").text(data.date);
