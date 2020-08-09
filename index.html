@@ -29,8 +29,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="/post/list"> Danh sách </a></li>
-                        <li class="nav-item" id="userManager"></li>
+                        <li class="nav-item active"><a id="linkToList" class="nav-link"></a></li>
+                        <li class="nav-item"><a id="userManager" class="nav-link" data-toggle="modal" style="cursor: pointer;"></a></li>
                     </ul>
                 </div>
             </div>
@@ -50,17 +50,17 @@
                     <div class="card my-4">
                         <h5 class="card-header">Tìm kiếm</h5>
                         <div class="card-body">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="">
+                            <form onsubmit="search(event)" class="input-group">
+                                <input type="text" required id="keyword" class="form-control" placeholder="">
                                 <span class="input-group-append">
-                                    <button class="btn btn-secondary" type="button">Tìm</button>
+                                    <input type="submit" class="btn btn-secondary" type="button" value="Tìm" />
                                 </span>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <div class="card my-4">
-                        <h5 class="card-header">Side Widget</h5>
-                        <div class="card-body"></div>
+                        <h5 class="card-header">Một số bài đănh khác</h5>
+                        <div class="card-body d-flex flex-column" id="otherPost"></div>
                     </div>
                 </div>
             </div>
