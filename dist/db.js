@@ -1,8 +1,15 @@
 class Database {
-  constructor (config) {
+  constructor (config, authentication) {
     firebase.initializeApp(config);
     this.db = firebase.database();
     this.auth = firebase.auth();
+    if (authentication) {
+      this.auth.onAuthStateChanged(function (user) {
+        if (user === null) {
+          window.location.href = "/";
+        }
+      });
+    }
   }
   async read(url) {
     const ref = this.db.ref(url);
@@ -24,14 +31,14 @@ class Database {
   async login(username, password) {
     let result;
     await this.auth.signInWithEmailAndPassword(username, password).then(function () {
-      result = "Đăng nhập thành công";
+      result = { rs: true, mss: "Đăng nhập thành công" };
     }).catch(function (error) {
-      result = error.message;
+      result = { rs: false, mss: error.message };;
     });
     return result;
   }
   async logout() {
-    auth.signOut();
+    this.auth.signOut();
   }
   async deleteList(url, index) {
     let count = 0;

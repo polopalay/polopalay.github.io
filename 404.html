@@ -5,29 +5,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Document</title>
 </head>
-<style>
-  body {
-    text-align: center;
-    align-items: center;
-  }
-
-  img {
-    width: 70%;
-  }
-
-  a {
-    color: #267cb9;
-    text-decoration: none;
-  }
-</style>
 
 <body>
-  <section>
-    <h2> Không tìm thấy địa chỉ, nhấn vào <a href="/">đây</a> để về trang chủ. </h2>
-    <p><img src="/images/404.jpg" alt="404" /></p>
-  </section>
+  <div class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+          <span class="display-1 d-block">404</span>
+          <div class="mb-4 lead">Không tồn tại trang này</div>
+          <a href="/" class="btn btn-link">Về trang chủ</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

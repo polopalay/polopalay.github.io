@@ -19,7 +19,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-  <link rel="stylesheet" href="/dist/site.css">
+  <link rel="stylesheet" href="/css/site.css">
 </head>
 
 <body class="d-flex flex-column">
@@ -34,7 +34,7 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active"><a id="create" href="/post/list" class="nav-link"> Danh sách </a></li>
             <li class="nav-item active"><a class="nav-link" style="cursor: pointer;" onclick="$('#editorForm').submit()"> Lưu </a></li>
-            <li class="nav-item"><a class="nav-link" onclick="database.auth.signOut(); window.location.href = '/login';" href="#">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" onclick="database.auth.signOut();" href="#"> Đăng xuất </a></li>
           </ul>
         </div>
       </div>
@@ -53,6 +53,7 @@
           <div class="form-group col-md-4"><img class="w-100" src="/images/placeholder.png" id="demoImg" alt=""></div>
         </div>
         <textarea class="form-control" id="content"></textarea>
+        <div id="word-count"></div>
         <div class="form-row my-5">
           <div class="form-group col-md-8">
             <input type="file" onchange="readFile(event)" class="custom-file-input" id="file" />

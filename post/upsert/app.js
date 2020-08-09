@@ -9,22 +9,13 @@ const config = {
   "measurementId": "G-CD4W02BEZ7"
 };
 const limitSize = 1;
-const database = new Database(config);
+const database = new Database(config, true);
 const index = getURLParameter("index");
 let id;
 let img = "/images/placeholder.png";
 let file = "/images/placeholder.png";
 let editor;
 let senderPost;
-async function start() {
-  database.auth.onAuthStateChanged(function (user) {
-    if (user === null) {
-      window.location.href = "/login";
-    } else {
-      getData();
-    }
-  });
-}
 
 async function getData() {
   const data = await database.read("/posts/data");
@@ -47,8 +38,8 @@ async function getData() {
     },
     toolbar: ['heading', '|', 'bold', 'italic', 'link',
       '|', 'bulletedList', 'numberedList',
-      '|', 'undo', 'redo',
-      '|', 'insertTable', 'mediaEmbed'],
+      '|', 'selectAll', 'undo', 'redo',
+      '|', 'insertTable', 'mediaEmbed', 'imageUpload'],
     language: "vi",
   }).then((newEditor) => {
     console.log(Array.from(newEditor.ui.componentFactory.names()));
@@ -111,4 +102,4 @@ function readFile(event) {
   }
 }
 
-start();
+getData();

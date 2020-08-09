@@ -8,15 +8,9 @@ const config = {
     "appId": "1:381903672681:web:813cffbc63da30d11f99f8",
     "measurementId": "G-CD4W02BEZ7"
 };
-const database = new Database(config);
+const database = new Database(config, true);
 let table;
-database.auth.onAuthStateChanged(function (user) {
-    if (user === null) {
-        window.location.href = "/login";
-    } else {
-        load();
-    }
-});
+load();
 
 async function load() {
     let index = 0;
@@ -32,10 +26,10 @@ async function load() {
             {
                 "render": function () {
                     const element = `<div class="text-center">
-                                <button onclick=upsertPost(${index})  class="btn btn-success text-white" style="cursor:pointer">
+                                <button onclick=upsertPost(${index})  class="btn btn-sm btn-success text-white" style="cursor:pointer">
                                     <i class="fas fa-edit"></i>
                                 </button>
-                                <button onclick=deletePost(${index}) class="btn btn-danger text-white" style="cursor:pointer">
+                                <button onclick=deletePost(${index}) class="btn btn-sm btn-danger text-white" style="cursor:pointer">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                               </div>`;
