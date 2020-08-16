@@ -13,7 +13,8 @@ const database = new Database(config, true);
 const index = getURLParameter("index");
 let id;
 let img = "/images/placeholder.png";
-let file = "/images/placeholder.png";
+let filesrc = "/images/placeholder.png";
+let filename = "placeholder.png";
 let editor;
 let senderPost;
 
@@ -28,7 +29,8 @@ async function getData() {
     $("#description").val(data[index].description);
     $("#demoImg").attr("src", img);
     $("#content").text(data[index].content);
-    $("#demoFile").attr("href", file);
+    $("#demoFile").attr("href", file.filesrc);
+    $("#demoFile").attr("download", file.filename);
   }
   ClassicEditor.create(document.querySelector("#content"), {
     cloudServices: {
@@ -38,14 +40,14 @@ async function getData() {
     },
     toolbar: ['heading', '|', 'bold', 'italic', 'link',
       '|', 'bulletedList', 'numberedList',
-      '|', 'selectAll', 'undo', 'redo',
-      '|', 'insertTable', 'mediaEmbed', 'imageUpload'],
+      '|', "indent", "outdent",
+      '|', 'insertTable', "blockQuote", 'imageUpload',
+      '|', 'selectAll', 'undo', 'redo'],
     language: "vi",
   }).then((newEditor) => {
     console.log(Array.from(newEditor.ui.componentFactory.names()));
     editor = newEditor;
   });
-  // $("#content").from($("#content").ui.componentFactory.names());
 }
 
 function submitData() {
@@ -55,7 +57,7 @@ function submitData() {
     description: $("#description").val(),
     image: img,
     content: editor.getData(),
-    file: file,
+    file: { filename, filesrc },
     date: date.toUTCString()
   };
   post.date = senderPost == null ? date.toUTCString() : senderPost.date;
@@ -87,11 +89,12 @@ function readImg(event) {
 
 function readFile(event) {
   const filesSelected = event.target.files;
+  filename = event.target.value.split("\\")[event.target.value.split("\\").length - 1];
   if (filesSelected.length > 0) {
     const fileReader = new FileReader();
     fileReader.onload = function (fileLoadedEvent) {
-      file = fileLoadedEvent.target.result;
-      $("#demoFile").attr("href", file);
+      filesrc = fileLoadedEvent.target.result;
+      $("#demoFile").attr("href", filesrc);
     };
     if (filesSelected[0].size < 1024 * 1024 * limitSize) {
       fileReader.readAsDataURL(filesSelected[0]);

@@ -14,7 +14,7 @@ async function getData() {
     const user = await database.auth.currentUser;
     if (data.length > 0) {
         setSrc(data[0]);
-        fillDataToListPost(data, 6);
+        fillDataToListPost(data);
     }
     if (user == null) {
         setLogin();
@@ -31,7 +31,7 @@ async function search(event) {
         return element.title.includes($("#keyword").val());
     });
     if (data.length > 0) {
-        fillDataToListPost(listRs, 100000);
+        fillDataToListPost(listRs);
     }
 }
 
@@ -68,17 +68,29 @@ function setSrc(data) {
     $("#date").text(data.date);
     $("#description").text(data.description);
     $("#content").html(data.content);
+    $("#file").attr("href", data.file.filesrc);
+    $("#file").attr("download", data.file.filename);
 }
-function fillDataToListPost(data, limit) {
+function fillDataToListPost(data) {
     $("#otherPost").empty();
-    for (let i = 1; i < data.length && i < limit; i++) {
-        $("#otherPost").append($("<a>", {
-            text: data[i].title,
-            href: "#",
-            click: function () {
-                setSrc(data[i]);
-            }
-        }))
-    }
+    $("#pagination").empty();
+    $('#pagination').pagination({
+        pageSize: 5,
+        dataSource: data,
+        className: 'paginationjs-theme-blue paginationjs-small',
+        callback: function (dt) {
+            $("#otherPost").empty();
+            dt.forEach(element => {
+                $("#otherPost").append($("<a>", {
+                    class: "mb-1",
+                    text: element.title,
+                    href: "#",
+                    click: function () {
+                        setSrc(element);
+                    }
+                }))
+            });
+        }
+    });
 }
 getData();

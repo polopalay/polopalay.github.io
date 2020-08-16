@@ -51,3 +51,4 @@ function deleteCookie(name) {
     document.cookie = name + "=; Path=/; Expires=" + date.toUTCString();
   }
 }
+

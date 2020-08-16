@@ -44,7 +44,9 @@ function upsertPost(index) {
     window.location.href = `/post/upsert/?index=${index}`;
 }
 async function deletePost(index) {
-    await database.deleteList("/posts/data/", index);
-    $('#tblData').DataTable().ajax.reload();
-    $('#tblData').DataTable().ajax.reload();
+    await database.deleteList("/posts/data/", index).then(function () {
+        console.log("A");
+        $('#tblData').DataTable().ajax.reload();
+        $('#tblData').DataTable().ajax.reload();
+    });
 }
