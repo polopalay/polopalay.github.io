@@ -18,18 +18,23 @@ async function load() {
         "paging": true,
         "info": true,
         "order": [2, "desc"],
-        "ajax": "https://data-492da.firebaseio.com/posts.json",
+        "ajax": "https://data-492da.firebaseio.com/slide.json",
         "columns": [
-            { "data": "title", "width": "30%" },
-            { "data": "description", "width": "30%" },
-            { "data": "date", "width": "20%" },
+            { "data": "title", "width": "40%" },
             {
-                "render": function () {
+                "data": "image",
+                "render": function (data) {
+                    return ` <img class="img-fluid img-thumbnail" src="${data}" alt="">`;
+                },
+                "width": "40%"
+            },
+            {
+                "render": function (data) {
                     const element = `<div class="text-center">
-                                <button onclick=upsertPost(${index})  class="btn btn-sm btn-success text-white" style="cursor:pointer">
+                                <button onclick=upsertSlide(${index})  class="btn btn-sm btn-success text-white" style="cursor:pointer">
                                     <i class="fas fa-edit"></i>
                                 </button>
-                                <button onclick=deletePost(${index}) class="btn btn-sm btn-danger text-white" style="cursor:pointer">
+                                <button onclick=deleteSlide(${index}) class="btn btn-sm btn-danger text-white" style="cursor:pointer">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                               </div>`;
@@ -40,10 +45,10 @@ async function load() {
         ]
     });
 }
-function upsertPost(index) {
-    window.location.href = `/post/upsert/?index=${index}`;
+function upsertSlide(index) {
+    window.location.href = `/slide/upsert/?index=${index}`;
 }
-async function deletePost(index) {
+async function deleteSlide(index) {
     await database.deleteList("/posts/data/", index).then(function () {
         $('#tblData').DataTable().ajax.reload();
         $('#tblData').DataTable().ajax.reload();
