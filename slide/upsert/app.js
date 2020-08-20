@@ -46,19 +46,14 @@ async function getData() {
 }
 
 function submitData() {
-  const date = new Date();
   const post = {
     title: $("#title").val(),
-    description: $("#description").val(),
     image: img,
     content: editor.getData(),
-    file: { filename, filesrc },
-    date: date.toUTCString()
   };
-  post.date = senderPost == null ? date.toUTCString() : senderPost.date;
   id = (index == null || index < 0 || index > id) ? id : index;
   senderPost = senderPost == null ? post : senderPost;
-  database.set(`/posts/data/${id}`, post).then(function () {
+  database.set(`/slide/data/${id}`, post).then(function () {
     toastr.success("Cập nhập thành công");
   }).catch(function (error) {
     toastr.error(error.message);

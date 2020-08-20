@@ -49,7 +49,7 @@ function upsertSlide(index) {
     window.location.href = `/slide/upsert/?index=${index}`;
 }
 async function deleteSlide(index) {
-    await database.deleteList("/posts/data/", index).then(function () {
+    await database.deleteList("/slide/data/", index).then(function () {
         $('#tblData').DataTable().ajax.reload();
         $('#tblData').DataTable().ajax.reload();
     });
