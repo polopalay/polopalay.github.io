@@ -10,11 +10,20 @@ const config = {
 };
 const database = new Database(config, false);
 async function getData() {
-    const data = await database.read("/posts/data");
+    const data = await database.read("/slide/data");
     const user = await database.auth.currentUser;
-    if (data.length > 0) {
-        setSrc(data[data.length - 1]);
-    }
+    let active = true;
+    data.forEach(element => {
+        const div = $("<div>", {
+            class: ("carousel-item " + (active ? "active" : ""))
+        });
+        active = false;
+        div.append($("<img>", {
+            class: "d-block w-100",
+            src: element.image
+        }));
+        $("#images").append(div);
+    });
     if (user == null) {
         setLogin();
     } else {
@@ -50,15 +59,7 @@ function setLogout() {
         setLogin();
     });
 }
-function setSrc(data) {
-    $("#title").text(data.title);
-    $("#image").attr("src", data.image);
-    $("#date").text(data.date);
-    $("#description").text(data.description);
-    $("#content").html(data.content);
-    $("#file").attr("href", data.file.filesrc);
-    $("#file").attr("download", data.file.filename);
-}
+
 $("#linkToList").hide();
 $("#linkToSlide").hide();
 getData();

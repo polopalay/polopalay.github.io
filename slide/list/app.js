@@ -29,7 +29,7 @@ async function load() {
                 "width": "40%"
             },
             {
-                "render": function (data) {
+                "render": function () {
                     const element = `<div class="text-center">
                                 <button onclick=upsertSlide(${index})  class="btn btn-sm btn-success text-white" style="cursor:pointer">
                                     <i class="fas fa-edit"></i>

@@ -14,11 +14,24 @@ async function getData() {
     const user = await database.auth.currentUser;
     if (data.length > 0) {
         setSrc(data[data.length - 1]);
+        fillDataToListPost(data);
     }
     if (user == null) {
         setLogin();
     } else {
         setLogout();
+    }
+}
+
+async function search(event) {
+    event.preventDefault();
+    console.log($("#keyword").val());
+    const data = await database.read("/posts/data");
+    const listRs = data.filter(element => {
+        return element.title.includes($("#keyword").val());
+    });
+    if (data.length > 0) {
+        fillDataToListPost(listRs);
     }
 }
 
@@ -58,6 +71,28 @@ function setSrc(data) {
     $("#content").html(data.content);
     $("#file").attr("href", data.file.filesrc);
     $("#file").attr("download", data.file.filename);
+}
+function fillDataToListPost(data) {
+    $("#otherPost").empty();
+    $("#pagination").empty();
+    $('#pagination').pagination({
+        pageSize: 5,
+        dataSource: data,
+        className: 'paginationjs-theme-blue paginationjs-small',
+        callback: function (dt) {
+            $("#otherPost").empty();
+            dt.forEach(element => {
+                $("#otherPost").append($("<a>", {
+                    class: "mb-1",
+                    text: element.title,
+                    href: "#",
+                    click: function () {
+                        setSrc(element);
+                    }
+                }))
+            });
+        }
+    });
 }
 $("#linkToList").hide();
 $("#linkToSlide").hide();

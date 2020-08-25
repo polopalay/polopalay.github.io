@@ -47,18 +47,42 @@
             </div>
         </nav>
         <div class="container">
-            <h1 id="title" class="mt-4"></h1>
-            <hr>
-            <p id="date"></p>
-            <hr>
-            <img id="image" class="img-fluid rounded" src="" alt="">
-            <hr>
-            <div id="content" class="mb-3"></div>
-            <div class="d-flex w-100 flex-row-reverse">
-                <a class="btn btn-sm btn-secondary text-white mb-3 px-5" style="cursor: pointer;" id="file">
-                    <i class="fas fa-download"></i>
-                </a>
-                <p class="text-center text-secondary mr-4"> Tải file đính kèm </p>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 id="title" class="mt-4"></h1>
+                    <hr>
+                    <p id="date"></p>
+                    <hr>
+                    <img id="image" class="img-fluid rounded" src="" alt="">
+                    <hr>
+                    <div id="content" class="mb-3"></div>
+                    <div class="d-flex w-100 flex-row-reverse">
+                        <a class="btn btn-sm btn-secondary text-white mb-3 px-5" style="cursor: pointer;" id="file">
+                            <i class="fas fa-download"></i>
+                        </a>
+                        <p class="text-center text-secondary mr-4"> Tải file đính kèm </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card my-4">
+                        <h5 class="card-header">Tìm kiếm</h5>
+                        <div class="card-body">
+                            <form onsubmit="search(event)" class="input-group">
+                                <input type="text" required id="keyword" class="form-control" placeholder="">
+                                <span class="input-group-append">
+                                    <input type="submit" class="btn btn-secondary" type="button" value="Tìm" />
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card my-4">
+                        <h5 class="card-header">Một số bài đăng khác</h5>
+                        <div class="card-body">
+                            <div class=" d-flex flex-column mb-3" id="otherPost"></div>
+                            <div id="pagination"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -95,7 +119,7 @@
     </div>
     <script src="/dist/library.js"></script>
     <script src="/dist/db.js"></script>
-    <script src="/js/site.js"></script>
+    <script src="/post/detail/app.js"></script>
 </body>
 
 </html>
