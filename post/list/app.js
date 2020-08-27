@@ -26,11 +26,11 @@ async function load() {
             {
                 "render": function () {
                     const element = `<div class="text-center">
-                                <button onclick=upsertPost(${index})  class="btn btn-sm btn-success text-white" style="cursor:pointer">
-                                    <i class="fas fa-edit"></i>
+                                <button onclick=upsertPost(${index})  class="btn btn-sm btn-light bg-white border-white" style="cursor:pointer">
+                                    <i class="far fa-edit"></i>
                                 </button>
-                                <button onclick=deletePost(${index}) class="btn btn-sm btn-danger text-white" style="cursor:pointer">
-                                    <i class="fas fa-trash-alt"></i>
+                                <button onclick=deletePost(${index}) class="btn btn-sm btn-light bg-white border-white" style="cursor:pointer">
+                                    <i class="far fa-trash-alt"></i>
                                 </button>
                               </div>`;
                     index++;

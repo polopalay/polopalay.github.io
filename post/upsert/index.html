@@ -26,16 +26,23 @@
   <div id="page-content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
       <div class="container">
-        <a class="navbar-brand" href="/"> Trang chủ </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a id="create" href="/post/list" class="nav-link"> Danh sách </a></li>
-            <li class="nav-item active"><a class="nav-link" style="cursor: pointer;" onclick="$('#editorForm').submit()"> Lưu </a></li>
-            <li class="nav-item"><a class="nav-link" onclick="database.auth.signOut();" href="#"> Đăng xuất </a></li>
-          </ul>
+          <a class="navbar-brand" href="/"> Home </a>
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/post/detail"> Post </a>
+            <a class="nav-item nav-link active" href="/slide/detail"> Slide </a>
+          </div>
+          <div class="navbar-nav ml-auto dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Manager </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a id="linkToList" class="nav-link dropdown-item" href="/post/list"> Manager post </a>
+              <a id="linkToSlide" class="nav-link dropdown-item" href="/slide/list"> Manager slide </a>
+              <a class="nav-link dropdown-item" onclick="database.logout();" style="cursor: pointer;"> Logout </a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -64,6 +71,14 @@
               <i class="fas fa-download"></i>
             </a>
           </div>
+        </div>
+        <div class="form-row d-flex justify-content-center">
+          <button type="submit" class="btn btn-lg btn-light bg-white border-white">
+            <i class="far fa-edit"></i>
+          </button>
+          <a href="/slide/list" class="btn btn-lg btn-light bg-white border-white">
+            <i class="far fa-list"></i>
+          </a>
         </div>
       </form>
     </div>

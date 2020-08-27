@@ -35,13 +35,13 @@ async function login(event) {
 }
 
 function setLogin() {
-    $("#userManager").text("Đăng nhập");
+    $("#userManager").text("Login");
     $("#linkToList").hide();
     $("#linkToSlide").hide();
     $("#userManager").attr("data-target", "#modelLogin");
 }
 function setLogout() {
-    $("#userManager").text("Đăng xuất");
+    $("#userManager").text("Logout");
     $("#userManager").attr("data-target", "");
     $("#linkToList").show();
     $("#linkToSlide").show();

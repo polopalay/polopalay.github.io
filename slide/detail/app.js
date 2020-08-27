@@ -13,6 +13,7 @@ async function getData() {
     const data = await database.read("/slide/data");
     const user = await database.auth.currentUser;
     let active = true;
+    console.log(data);
     data.forEach(element => {
         const div = $("<div>", {
             class: ("carousel-item " + (active ? "active" : ""))
@@ -22,6 +23,18 @@ async function getData() {
             class: "d-block w-100",
             src: element.image
         }));
+        const content = $("<div>", {
+            class: "container mt-5"
+        });
+        content.append($("<h5>", {
+            class: "text-center",
+            text: element.title
+        }));
+        console.log(element.title);
+        const body = ($("<div>"));
+        body.append(element.content);
+        content.append(body);
+        div.append(content);
         $("#images").append(div);
     });
     if (user == null) {
@@ -44,13 +57,13 @@ async function login(event) {
 }
 
 function setLogin() {
-    $("#userManager").text("Đăng nhập");
+    $("#userManager").text("Login");
     $("#linkToList").hide();
     $("#linkToSlide").hide();
     $("#userManager").attr("data-target", "#modelLogin");
 }
 function setLogout() {
-    $("#userManager").text("Đăng xuất");
+    $("#userManager").text("Logout");
     $("#userManager").attr("data-target", "");
     $("#linkToList").show();
     $("#linkToSlide").show();
