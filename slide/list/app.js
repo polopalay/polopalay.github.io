@@ -18,6 +18,7 @@ async function load() {
         "paging": true,
         "info": true,
         "order": [2, "desc"],
+        "lengthMenu": [5, 10, 15, 20],
         "ajax": "https://data-492da.firebaseio.com/slide.json",
         "columns": [
             { "data": "title", "width": "40%" },

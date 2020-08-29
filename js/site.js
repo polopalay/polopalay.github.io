@@ -10,18 +10,13 @@ const config = {
 };
 const database = new Database(config, false);
 async function getData() {
-    const data = await database.read("/posts/data");
     const user = await database.auth.currentUser;
-    if (data.length > 0) {
-        setSrc(data[data.length - 1]);
-    }
     if (user == null) {
         setLogin();
     } else {
         setLogout();
     }
 }
-
 async function login(event) {
     event.preventDefault();
     const result = await database.login($("#account").val(), $("#password").val());
@@ -33,7 +28,6 @@ async function login(event) {
         $("#error").html(result.mss);
     }
 }
-
 function setLogin() {
     $("#userManager").text("Login");
     $("#linkToList").hide();
@@ -49,15 +43,6 @@ function setLogout() {
         database.logout();
         setLogin();
     });
-}
-function setSrc(data) {
-    $("#title").text(data.title);
-    $("#image").attr("src", data.image);
-    $("#date").text(data.date);
-    $("#description").text(data.description);
-    $("#content").html(data.content);
-    $("#file").attr("href", data.file.filesrc);
-    $("#file").attr("download", data.file.filename);
 }
 $("#linkToList").hide();
 $("#linkToSlide").hide();
