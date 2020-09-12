@@ -21,13 +21,13 @@ async function load() {
         "lengthMenu": [5, 10, 15, 20],
         "ajax": "https://data-492da.firebaseio.com/slide.json",
         "columns": [
-            { "data": "title", "width": "40%" },
+            { "data": "title", "width": "50%" },
             {
                 "data": "image",
                 "render": function (data) {
-                    return ` <img class="img-fluid img-thumbnail" src="${data}" alt="">`;
+                    return ` <img class="img-fluid" style=" width: 100%; height: 100px; object-fit: contain;" src="${data}" alt="">`;
                 },
-                "width": "40%"
+                "width": "30%"
             },
             {
                 "render": function () {

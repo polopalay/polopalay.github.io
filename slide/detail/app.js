@@ -21,7 +21,12 @@ async function getData() {
         active = false;
         div.append($("<img>", {
             class: "d-block w-100",
-            src: element.image
+            src: element.image,
+            css: {
+                "width": "100%",
+                "height": "75vh",
+                "object-fit": "contain"
+            }
         }));
         const content = $("<div>", {
             class: "container mt-5"
