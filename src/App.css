@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.app{
+  min-height: 100vh !important;
+  justify-content: space-between !important;
+}
+
+p {
+word-break: break-all;
+}
