@@ -1,6 +1,6 @@
 {
-  "homepage": "https://polopalay.github.io/lts",
-  "name": "lts",
+  "homepage": "https://polopalay.github.io/lotus",
+  "name": "lotus",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
